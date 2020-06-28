@@ -11,25 +11,34 @@
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
       crossorigin="anonymous"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div class="header col-lg-12">
-      <h1>Weather Dashboard</h1>
-    </div>
-    <div class="row">
-      <div class="side col-lg-3">
-        <p>search bar and saved searches will go here</p>
+    <div class="container-fluid">
+      <div class="header">
+        <h1>Weather Dashboard</h1>
       </div>
-      <div class="dashboard col-lg-3">
-        <p>The main dashboard will go here. City, temp, humidity, etc</p>
+      <div class="row row-cols-2">
+        <div class="side col-lg-4">
+          <p>search bar and saved searches will go here</p>
+        </div>
+        <div class="col-lg-8">
+          <div class="row">
+            <div class="dashboard col">
+              <p>The main dashboard will go here. City, temp, humidity, etc</p>
+            </div>
+          </div>
+          <div class="row rowtwo">
+            <div class="forecast row">
+              <p>5 day forecast will go here</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="row">
-      <div class="forecast col-lg-3">
-        <p>5 day forecast will go here</p>
-      </div>
-    </div>
-
     <script type="text" href="script.js"></script>
   </body>
 </html>

@@ -1,0 +1,28 @@
+body {
+  font-family: "Balsamiq Sans", cursive;
+}
+
+.container {
+  margin: 0;
+}
+
+.header {
+  background-color: #6d7072;
+  text-align: center;
+}
+
+.side {
+  border-style: solid;
+  height: 500px;
+}
+
+.dashboard {
+  border-style: solid;
+}
+.row {
+  margin-left: 0;
+}
+
+.forecast {
+  border-style: solid;
+}
