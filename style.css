@@ -2,27 +2,40 @@ body {
   font-family: "Balsamiq Sans", cursive;
 }
 
-.container {
+.container-fluid {
   margin: 0;
 }
 
 .header {
-  background-color: #6d7072;
+  background-color: #2874a6;
   text-align: center;
+  padding: 10px;
 }
 
 .side {
   border-style: solid;
   height: 500px;
+  background-color: #138d75;
+}
+
+#button {
+  background-color: #2874a6;
 }
 
 .dashboard {
   border-style: solid;
 }
 .row {
-  margin-left: 0;
+  margin-left: 15px;
+  height: 250px;
 }
 
 .forecast {
   border-style: solid;
+  height: 250px;
+}
+
+.dashboard,
+.forecast {
+  background-color: #1abc9c;
 }
