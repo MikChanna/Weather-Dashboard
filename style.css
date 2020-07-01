@@ -19,6 +19,7 @@ body {
 }
 
 #button {
+  margin: 10px;
   background-color: #2874a6;
 }
 
@@ -37,5 +38,5 @@ body {
 
 .dashboard,
 .forecast {
-  background-color: #1abc9c;
+  margin: 5px;
 }
