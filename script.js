@@ -3,9 +3,12 @@ $(document).ready(function () {
   var buttonArea = $(".buttonArea");
   var dashboard = $(".dashboard");
   var forecast = $(".forecast");
+  var citynames = [];
 
   // event listener for search button
-  $("#button").on("click", function () {
+  $("#button").on("click", function (event) {
+    event.preventDefault();
+
     var city = $("#search").val().trim();
     var key = "da6d702ce9ba1524729fa879b5abc291";
     var queryURL =
@@ -13,6 +16,8 @@ $(document).ready(function () {
       city +
       "&appid=" +
       key;
+    citynames.push(city);
+    console.log(citynames);
     // ajax call
     $.ajax({
       url: queryURL,
@@ -24,6 +29,7 @@ $(document).ready(function () {
 
       // function to display main dashboard weather
       function mainDash() {
+        dashboard.empty();
         // retrieves city name and date
         var todaysDate = response.list[0].dt_txt;
         var formatDate = moment(todaysDate).format("MMMM Do YYYY");
@@ -55,12 +61,15 @@ $(document).ready(function () {
         dashboard.append(cityName, minidash, humLine, windLine);
       }
 
-      // function renderButton() {
-      //   var cityName = response.city.name;
-      //   var button = $("<button class = 'button'>").attr("data-name", cityName);
-      //   $(".button").val("data-name");
-
-      // }
+      function renderButton() {
+        $(".buttonArea").empty();
+        for (var i = 0; i < citynames.length; i++) {
+          var button = $("<button>").attr("data-name", citynames[i]);
+          button.addClass("button");
+          button.text(citynames[i]);
+          buttonArea.append(button);
+        }
+      }
     });
   });
 });
