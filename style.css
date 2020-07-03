@@ -40,3 +40,12 @@ body {
 .forecast {
   margin: 5px;
 }
+
+.forecastDiv {
+  background-color: #2874a6;
+  margin: 15px;
+  border-style: solid;
+  width: 15%;
+  height: 200px;
+  float: left;
+}

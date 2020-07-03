@@ -98,27 +98,27 @@ $(document).ready(function () {
         }
 
         var div1 = $("#div1");
-        var formattedDate1 = moment(response.list[8].dt_txt).format("MMMM Do");
+        var formattedDate1 = moment(response.list[7].dt_txt).format("MMMM Do");
         var date1 = $("<p>").text(formattedDate1);
         div1.append(date1);
 
         var div2 = $("#div2");
-        var formattedDate2 = moment(response.list[16].dt_txt).format("MMMM Do");
+        var formattedDate2 = moment(response.list[15].dt_txt).format("MMMM Do");
         var date2 = $("<p>").text(formattedDate2);
         div2.append(date2);
 
         var div3 = $("#div3");
-        var formattedDate3 = moment(response.list[24].dt_txt).format("MMMM Do");
+        var formattedDate3 = moment(response.list[23].dt_txt).format("MMMM Do");
         var date3 = $("<p>").text(formattedDate3);
         div3.append(date3);
 
         var div4 = $("#div4");
-        var formattedDate4 = moment(response.list[32].dt_txt).format("MMMM Do");
+        var formattedDate4 = moment(response.list[31].dt_txt).format("MMMM Do");
         var date4 = $("<p>").text(formattedDate4);
         div4.append(date4);
 
         var div5 = $("#div5");
-        var formattedDate5 = moment(response.list[40].dt_txt).format("MMMM Do");
+        var formattedDate5 = moment(response.list[39].dt_txt).format("MMMM Do");
         var date5 = $("<p>").text(formattedDate5);
         div5.append(date5);
       }
