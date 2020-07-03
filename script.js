@@ -78,7 +78,7 @@ $(document).ready(function () {
         $(".buttonArea").empty();
         for (var i = 0; i < citynames.length; i++) {
           var button = $("<button>").attr("data-name", citynames[i]);
-          button.addClass("button");
+          button.addClass("buttons");
           button.text(citynames[i]);
           buttonArea.append(button);
         }
@@ -88,10 +88,6 @@ $(document).ready(function () {
       function getForecast() {
         var divNames = ["div1", "div2", "div3", "div4", "div5"];
         forecast.empty();
-
-        // var k = response.list[0].main.temp;
-        // var temp = 1.8 * (k - 273) + 32;
-        // var formatTemp = temp.toFixed(1);
 
         for (var i = 0; i < divNames.length; i++) {
           var divs = $("<div>");

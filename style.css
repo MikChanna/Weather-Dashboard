@@ -49,3 +49,10 @@ body {
   height: 200px;
   float: left;
 }
+.buttons {
+  background-color: white;
+  color: #2874a6;
+  width: 200px;
+  padding: 10px;
+  margin: 5px;
+}
