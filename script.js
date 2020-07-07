@@ -3,6 +3,7 @@ $(document).ready(function () {
   var buttonArea = $(".buttonArea");
   var dashboard = $(".dashboard");
   var forecast = $(".forecast");
+  var picturediv = $(".picturediv");
   var citynames = [];
   var clear =
     "https://www.clipartmax.com/png/middle/24-248320_sunny-weather-symbol-transparent.png";
@@ -53,6 +54,7 @@ $(document).ready(function () {
         // function to display main dashboard weather
         function mainDash() {
           dashboard.empty();
+          picturediv.empty();
 
           // retrieves city name and date
           var todaysDate = response.list[0].dt_txt;
@@ -88,7 +90,6 @@ $(document).ready(function () {
           dashboard.append(cityName, minidash, humLine, windLine);
 
           // retrieves weather and adds image
-          var picturediv = $("<div>").addClass("col picturediv");
           var picture = $("<img>");
           var weather = response.list[0].weather[0].main;
 
@@ -104,15 +105,14 @@ $(document).ready(function () {
           picture.attr("width", "200px");
           picture.attr("height", "200px");
 
-          $(".dashboardmain").append(picturediv);
           picturediv.append(picture);
         }
 
         // function to generated 5-day forecast
 
         function getForecast() {
-          var divNames = ["div1", "div2", "div3", "div4", "div5"];
           forecast.empty();
+          var divNames = ["div1", "div2", "div3", "div4", "div5"];
 
           var forecasttext = $("<h3>").text("5 Day Forecast:");
           forecast.append(forecasttext);
@@ -260,6 +260,41 @@ $(document).ready(function () {
           picture5.attr("height", "50px");
           div5.append(date5, picture5, formatTemp5, hum5);
         }
+
+        var long = response.city.coord.lon;
+        var lat = response.city.coord.lat;
+        var uvkey = "802b9f3e78e95b24782256720bbb096b";
+
+        console.log(long, lat);
+
+        // ajax call for UV Index
+        $.ajax({
+          type: "GET",
+          dataType: "json",
+          beforeSend: function (request) {
+            request.setRequestHeader("x-access-token", uvkey);
+          },
+          url: "https://api.openuv.io/api/v1/uv?lat=" + lat + "&lng=" + long,
+          success: function (response) {
+            //handle successful response
+            console.log(response);
+            var uvindex = response.result.uv.toFixed(2);
+            var uvindexline = $("<p>").text("UV Index: " + uvindex);
+            dashboard.append(uvindexline);
+            if (uvindex < 3) {
+              uvindexline.css("background-color", "#558B2F");
+            }
+            if (uvindex < 6 && uvindex > 3) {
+              uvindexline.css("background-color", "#F9A825");
+            }
+            if (uvindex < 8 && uvindex > 6) {
+              uvindexline.css("background-color", "#EF6C00");
+            }
+            if (uvindex < 11 && uvindex > 8) {
+              uvindexline.css("background-color", "#B71C1C");
+            }
+          },
+        });
       });
     });
   });
