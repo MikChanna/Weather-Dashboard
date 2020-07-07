@@ -25,6 +25,7 @@ body {
 
 .dashboard {
   border-style: solid;
+  margin: 10px;
 }
 .row {
   margin-left: 15px;
@@ -33,12 +34,8 @@ body {
 
 .forecast {
   border-style: solid;
-  height: 250px;
-}
-
-.dashboard,
-.forecast {
-  margin: 5px;
+  height: 300px;
+  margin: 20px 10px 10px 10px;
 }
 
 .forecastDiv {

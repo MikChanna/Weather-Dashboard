@@ -60,21 +60,6 @@ $(document).ready(function () {
           var cityName = $("<p class = 'dashtext'>").text(
             response.city.name + "  (" + formatDate + ")"
           );
-          // retrieves weather and adds image
-          var picture = $("<img>");
-          var weather = response.list[0].weather[0].main;
-
-          if (weather === "Rain") {
-            picture.attr("src", rain);
-          }
-          if (weather === "Clouds") {
-            picture.attr("src", cloud);
-          }
-          if (weather === "Clear") {
-            picture.attr("src", clear);
-          }
-          picture.attr("width", "100px");
-          picture.attr("height", "100px");
 
           // retrieves temperature and converts to fahrenheit
           var minidash = $("<p class = 'temp'>");
@@ -100,7 +85,27 @@ $(document).ready(function () {
           //  var uvindext = response.list[0].wind.speed;
           //  windLine.text("Wind Speed: " + windSpeed);
 
-          dashboard.append(cityName, picture, minidash, humLine, windLine);
+          dashboard.append(cityName, minidash, humLine, windLine);
+
+          // retrieves weather and adds image
+          var picturediv = $("<div>").addClass("col picturediv");
+          var picture = $("<img>");
+          var weather = response.list[0].weather[0].main;
+
+          if (weather === "Rain") {
+            picture.attr("src", rain);
+          }
+          if (weather === "Clouds") {
+            picture.attr("src", cloud);
+          }
+          if (weather === "Clear") {
+            picture.attr("src", clear);
+          }
+          picture.attr("width", "200px");
+          picture.attr("height", "200px");
+
+          $(".dashboardmain").append(picturediv);
+          picturediv.append(picture);
         }
 
         // function to generated 5-day forecast
@@ -108,6 +113,9 @@ $(document).ready(function () {
         function getForecast() {
           var divNames = ["div1", "div2", "div3", "div4", "div5"];
           forecast.empty();
+
+          var forecasttext = $("<h3>").text("5 Day Forecast:");
+          forecast.append(forecasttext);
 
           for (var i = 0; i < divNames.length; i++) {
             var divs = $("<div>");
