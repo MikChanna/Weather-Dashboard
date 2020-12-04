@@ -22,27 +22,30 @@
   </head>
   <body>
     <div class="container-fluid">
-      <div class="header">
+      <div class="row header">
         <h1>Weather Dashboard</h1>
       </div>
-      <div class="row row-cols-2">
-        <div class="side col-lg-4">
-          <div>
-            <input id="search" type="text" placeholder="Search.." />
-            <button id="button">search</button>
+        <div class = "row dash">
+          <div class = "side col-lg-4">
+            <div>
+                <input id="search" type="text" placeholder="Search.." />
+                <button id="button">search</button>
+            </div>
+            <div class="buttonArea"></div>
           </div>
-          <div class="buttonArea"></div>
+          <div class = "col-lg-8 emptydash">
+            <div class="row dashboardmain">
+                <div class="dashboard col"></div>
+                <div class="picturediv col"></div>
+            </div>
+            <div class="row rowtwo">
+                <div class="forecast col"></div>
+            </div>
         </div>
-        <div class="col-lg-8 emptydash">
-          <div class="row dashboardmain">
-            <div class="dashboard col"></div>
-            <div class="picturediv col"></div>
-          </div>
-          <div class="row rowtwo">
-            <div class="forecast col"></div>
-          </div>
-        </div>
+
+
       </div>
+      
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
